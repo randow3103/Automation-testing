@@ -3,14 +3,12 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.By;
 import java.util.List;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-@SuppressWarnings("unused")
 public class demo {
 	private WebDriver driver;
 	private ChromeOptions options;
@@ -27,15 +25,20 @@ public class demo {
 }
 	//"//a[@id='repositories-tab']/..//a[@id="+Xitem+"]"
 	public void SelectItem(String Xitem) {
-		Actions actions = new Actions(driver);
-		WebElement item= (WebElement) driver.findElements(By.xpath("//span[@title='PRACTICE-1']//preceding::span[@title="+Xitem+"]"));
-		actions.contextClick(item).perform();
+		List <WebElement> item= driver.findElements(By.xpath("//span[@title='PRACTICE-1']//preceding::span[@title="+Xitem+"]"));
+		
+		
+		for(int i=0; i<item.size();i++) {
 			
-
+			if(item.get(i).getText().contentEquals(Xitem)) {
+				item.get(i).click();
+				break;
+			}
+		}
 	}
 	@Test
 	public void Test() throws Exception{
 		driver.get(baseUrl);
-		SelectItem("trieunhat2806");
+		SelectItem("");
 	}
 }
