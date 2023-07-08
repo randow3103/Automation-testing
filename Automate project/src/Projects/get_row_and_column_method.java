@@ -38,19 +38,6 @@ public class get_row_and_column_method {
 
     }
     
-    public static int getRowNumberByNumber(String values) {
-		WebDriver driver;
-		System.setProperty("webdriver.chrome.driver", "c:\\chromedriver.exe");
-		driver = new ChromeDriver();
-		driver.get("https://demo.guru99.com/test/web-table-element.php");
-		for (i=1; i<rows.size(); i++)
-		{
-					
-		}
-		
-        return 0;
-    }
-    
 
 public void getRowNumberByValue(String value) throws Exception {	
 		System.setProperty("webdriver.chrome.driver","C:\\chromedriver.exe");
