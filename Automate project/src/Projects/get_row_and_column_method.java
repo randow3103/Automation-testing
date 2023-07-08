@@ -50,6 +50,23 @@ public class get_row_and_column_method {
 		
         return 0;
     }
+    
+
+public void getRowNumberByValue(String value) throws Exception {	
+		System.setProperty("webdriver.chrome.driver","C:\\chromedriver.exe");
+		WebDriver driver= new ChromeDriver();
+		String baseUrl=("https://demo.guru99.com/test/web-table-element.php");
+		driver.get(baseUrl);
+		
+		List<WebElement> column= driver.findElements(By.xpath("//*[@id='leftcontainer']" + "/table/tbody/tr/td[1]"));
+		for (int i=0;i<column.size();i++) {
+			if(column.get(i).getText().equals(value)) {
+				System.out.print("Value is: "+(i+1));
+			}
+		}
+	}
+    
+    
     @Test
     public static int getTableCellValue(int row, int col) {
     	WebDriver driver;
